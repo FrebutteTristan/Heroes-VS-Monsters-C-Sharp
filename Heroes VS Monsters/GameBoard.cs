@@ -292,7 +292,10 @@ namespace Heroes_VS_Monsters
                 Console.SetCursorPosition(col, row);
                 Console.Write(text);
             }
-            catch { }
+            catch 
+            {
+
+            }
         }
 
         private string PadRight(string text, int width)
@@ -331,14 +334,14 @@ namespace Heroes_VS_Monsters
 
         private string GetStatsLine3a()
         {
-            string sword = _hero.Sword != null ? _hero.Sword.ToString() : "—";
-            string staff = _hero.MagicStaff != null ? _hero.MagicStaff.ToString() : "—";
+            string sword = _hero.Sword != null ? _hero.Sword.ToString() : " x";
+            string staff = _hero.MagicStaff != null ? _hero.MagicStaff.ToString() : " x";
             return $"  🗡 {sword}  🪄 {staff}";
         }
 
         private string GetStatsLine3b()
         {
-            string armor = _hero.Armor != null ? _hero.Armor.ToString() : "—";
+            string armor = _hero.Armor != null ? _hero.Armor.ToString() : " x";
             return $"  🛡 {armor}";
         }
 

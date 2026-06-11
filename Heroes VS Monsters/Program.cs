@@ -110,7 +110,7 @@ namespace Heroes_VS_Monsters
 
             for (int i = 0; i < 4; i++)
             {
-                Console.Write($"           Appuie sur 'Enter'' pour lancer le dé ({i + 1}/4)...");
+                Console.WriteLine($"           Appuie sur 'Enter'' pour lancer le dé ({i + 1}/4)...");
                 Console.ReadLine();
 
                 results[i] = dice6.Roll();
@@ -135,7 +135,7 @@ namespace Heroes_VS_Monsters
             {
                 if (results[i] == smallerDice && !ignoreSmallerDice)
                 {
-                    Console.Write("");
+                    Console.WriteLine("");
                     ignoreSmallerDice = true;
                 }
 
