@@ -70,7 +70,8 @@ namespace Heroes_VS_Monsters.Characters
                 log.Add($" ⚠️  Tu possèdes déjà : {existing}");
                 log.Add($" Remplacer par {itemDrop} ?");
                 log.Add(" [Ecris 'oui' pour changer ou 'non'pour garder]");
-                log.Add("Appuie sur 'Enter'");
+                log.Add("Appuie sur 'Enter'" +
+                    "");
             }
         }
 
@@ -100,19 +101,19 @@ namespace Heroes_VS_Monsters.Characters
 
         public void LootDrop(Monsters monster)
         {
-            if (monster.Gold > 0) { Gold += monster.Gold; Console.WriteLine($"{Name} ramasse {monster.Gold} pièces d'or !"); }
-            if (monster.Leather > 0) { Leather += monster.Leather; Console.WriteLine($"{Name} ramasse {monster.Leather} morceaux de cuir !"); }
+            if (monster.Gold > 0) { Gold += monster.Gold; ConsoleHelper.WriteColored($"{Name} ramasse {monster.Gold} pièces d'or !", ConsoleColor.Yellow); }
+            if (monster.Leather > 0) { Leather += monster.Leather; ConsoleHelper.WriteColored($"{Name} ramasse {monster.Leather} morceaux de cuir !", ConsoleColor.Red); }
         }
 
         public void DropChance()
         {
             Item itemDrop = ItemsManagement.DropChance(Race);
-            if (itemDrop == null) { Console.WriteLine("Aucun objet trouvé."); return; }
+            if (itemDrop == null) { ConsoleHelper.WriteColored("Aucun objet trouvé.", ConsoleColor.Cyan); return; }
             Item inventory = GetInventory(itemDrop.Type);
             if (inventory == null) { EquipItem(itemDrop); }
             else
             {
-                Console.WriteLine($"Veux-tu remplacer {inventory} par {itemDrop} ? (oui/non) : ");
+                ConsoleHelper.WriteColored($"Veux-tu remplacer {inventory} par {itemDrop} ? (oui/non) : ", ConsoleColor.Cyan);
                 string answer = Console.ReadLine()!;
                 if (answer == "oui") EquipItem(itemDrop);
             }
@@ -121,7 +122,7 @@ namespace Heroes_VS_Monsters.Characters
         public void GetRest()
         {
             Rest();
-            Console.WriteLine($" {Name} se repose et récupère tous ses PV.");
+            ConsoleHelper.WriteColored($" {Name} se repose et récupère tous ses PV.", ConsoleColor.Yellow);
         }
 
         private Item GetInventory(TypeItem type)
@@ -140,11 +141,14 @@ namespace Heroes_VS_Monsters.Characters
 
         public void DisplayInventory()
         {
-            Console.WriteLine($"\n  --- Objets récupérés durant l'aventure ---");
-            Console.WriteLine($"  Or : {Gold} pièces | Cuir : {Leather} morceaux");
-            Console.WriteLine($"  Épée     : {(Sword != null ? Sword.ToString() : "aucune")}");
-            Console.WriteLine($"  Armure   : {(Armor != null ? Armor.ToString() : "aucune")}");
-            Console.WriteLine($"  Bâton    : {(MagicStaff != null ? MagicStaff.ToString() : "aucun")}");
+            ConsoleHelper.WriteColored(@$"  
+                  --- Objets récupérés durant l'aventure ---
+           
+                      Or : {Gold} pièces | Cuir : {Leather} morceaux
+                      Épée     : {(Sword != null ? Sword.ToString() : "aucune")}
+                      Armure   : {(Armor != null ? Armor.ToString() : "aucune")}
+                      Bâton    : {(MagicStaff != null ? MagicStaff.ToString() : "aucun")}", ConsoleColor.Yellow
+                     );
         }
 
         public override string ToString()

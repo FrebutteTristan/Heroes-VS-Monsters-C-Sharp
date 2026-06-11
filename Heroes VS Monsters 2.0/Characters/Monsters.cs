@@ -15,6 +15,5 @@ namespace Heroes_VS_Monsters.Characters
             Leather = 0;
         }
 
-
     }
 }

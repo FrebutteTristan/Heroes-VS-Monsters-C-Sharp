@@ -71,7 +71,7 @@ namespace Heroes_VS_Monsters
         {
             Console.OutputEncoding = System.Text.Encoding.UTF8;
             Console.CursorVisible = false;
-
+            _rightPanel.Add("");
             _rightPanel.Add("══ Journal ══════════════════════");
             _rightPanel.Add("");
             _rightPanel.Add("Bienvenue dans la Forêt !");
@@ -200,10 +200,10 @@ namespace Heroes_VS_Monsters
 
 
             Console.SetCursorPosition(0, 0);
-            Console.WriteLine("    ╔══════════════════════════╗              ╔══════════════════════════════════════╗");
-            Console.WriteLine("    ║    Forêt Kryptgarden     ║              ║            Journal / Combat          ║");
-            Console.WriteLine("    ╚══════════════════════════╝              ╚══════════════════════════════════════╝");
-
+            
+ConsoleHelper.WriteColored(@"    ╔══════════════════════════╗              ╔══════════════════════════════════════╗
+    ║    Forêt Kryptgarden     ║              ║            Journal / Combat          ║
+    ╚══════════════════════════╝              ╚══════════════════════════════════════╝", ConsoleColor.Yellow);
 
             int mapStartRow = PANEL_START_ROW;
             int row = mapStartRow;
@@ -326,20 +326,20 @@ namespace Heroes_VS_Monsters
         private void DisplayGameEnd()
         {
             Console.Clear();
-            Console.WriteLine(@"
+            ConsoleHelper.WriteColored(@"
 
                 ╔══════════════════════════════════════════╗
                 ║              FIN DU JEU                  ║
                 ╚══════════════════════════════════════════╝
-            ");
+            ", ConsoleColor.Yellow);
 
 
             if (_hero.Dead())
             {
-                Console.WriteLine(@$"                
-                 💀 {_hero.Name} est tombé(e) au combat !
-               Tu as vaincu {_defeatedMonsters} monstre(s).
-     
+                ConsoleHelper.WriteColored(@$"                
+                      💀 {_hero.Name} est tombé(e) au combat !
+                         Tu as vaincu {_defeatedMonsters} monstre(s).", ConsoleColor.Red);
+                ConsoleHelper.WriteColored(@$"
                                 _____________
                                /             \
                               /               \
@@ -357,28 +357,31 @@ namespace Heroes_VS_Monsters
                        /          (  )-(  )          \
                       /            (_____)            \
                      /                                 \
-                     -----------------------------------");
+                     -----------------------------------", ConsoleColor.Gray);
             }
             else
             {
-                Console.WriteLine(@$"                    
+                ConsoleHelper.WriteColored(@$"                    
                                   🏆 Félicitations {_hero.Name} !
                             Tu as vaincu tous les monstres de la forêt !
-                     Tu peux enfin quitter cet endroit maudit et rentrer chez toi.
+                     Tu peux enfin quitter cet endroit maudit et rentrer chez toi.", ConsoleColor.Yellow);
 
-                            (@@)       (@@)       (@@)       (@@)       (@@)
-                           (@@@@)     (@@@@)     (@@@@)     (@@@@)     (@@@@)
-                          (@@@@@@)   (@@@@@@)   (@@@@@@)   (@@@@@@)   (@@@@@@)
-                             ||         ||         ||         ||         ||
-                    --------------------------------------------------------------
+                ConsoleHelper.WriteColored($@"
+                             (@@)       (@@)       (@@)       (@@)       (@@)
+                            (@@@@)     (@@@@)     (@@@@)     (@@@@)     (@@@@)
+                           (@@@@@@)   (@@@@@@)   (@@@@@@)   (@@@@@@)   (@@@@@@)", ConsoleColor.DarkGreen);
+ConsoleHelper.WriteColored(@$"                              ||         ||         ||         ||         ||
+                    --------------------------------------------------------------", ConsoleColor.DarkGray);
+ConsoleHelper.WriteColored($@"
                                              0
                                             \_\_
                                               _\\
-                                            _/  \_
+                                            _/  \_", ConsoleColor.Yellow); 
 
+ConsoleHelper.WriteColored(@$"
                     --------------------------------------------------------------
                 
-                ");
+                ", ConsoleColor.DarkGray);
             }
 
 
@@ -400,6 +403,16 @@ namespace Heroes_VS_Monsters
             Monster = monster;
             X = x;
             Y = y;
+        }
+    }
+
+    public static class ConsoleHelper
+    {
+        public static void WriteColored(string text, ConsoleColor color)
+        {
+            Console.ForegroundColor = color;
+            Console.WriteLine(text);
+            Console.ResetColor();
         }
     }
 }

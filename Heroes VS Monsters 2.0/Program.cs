@@ -12,7 +12,7 @@ namespace Heroes_VS_Monsters
 
 
        
-            Console.WriteLine(@"
+            ConsoleHelper.WriteColored(@"
 
                                     Tu te réveilles avec une migraine intense...                  
             
@@ -43,12 +43,11 @@ namespace Heroes_VS_Monsters
             3. 🧝 Elfe   (+2 Arcane)              - peut s'équiper d'un bâton magique et d'une armure
             
               1, 2 ou 3 :
-            ");
-
+            ", ConsoleColor.Yellow);
             
             string raceSelection = Console.ReadLine()!;
 
-            Console.WriteLine("En te massant les tempes, tu arrives à retrouver tes esprits, quel est ton nom ?");
+            ConsoleHelper.WriteColored("En te massant les tempes, tu arrives à retrouver tes esprits, quel est ton nom ?", ConsoleColor.Yellow);
             string heroName = Console.ReadLine()!;
             Console.Clear();
 
@@ -95,14 +94,14 @@ namespace Heroes_VS_Monsters
             int[] results = new int[4];
 
 
-            Console.WriteLine(@$"  
+            ConsoleHelper.WriteColored(@$"  
     ╔══════════════════════════════════════════╗
      🎲 Lancer des dés pour : {stats}   
     ╚══════════════════════════════════════════╝
                
  Tu vas lancer 4 dés 6.Seuls les 3 meilleurs résultats
  seront additionnés pour déterminer ta/ton {stats}.
-            ");
+            ", ConsoleColor.Cyan);
           
 
             for (int i = 0; i < 4; i++)

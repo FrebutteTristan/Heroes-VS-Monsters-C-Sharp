@@ -42,6 +42,9 @@ namespace Heroes_VS_Monsters.Characters
             _HP = Stamina + StatsModifier(Stamina);
         }
 
+        public virtual int EffectiveStrength => Strength;
+        public virtual int EffectiveStamina => Stamina;
+
         public static int StatsModifier(int value)
         {
             if (value <= 4)
@@ -69,7 +72,7 @@ namespace Heroes_VS_Monsters.Characters
         public virtual void Hit(Characters target)
         {
             Dice dice4 = new Dice(1, 4);
-            int damages = dice4.Roll() + StatsModifier(Strength);
+            int damages = dice4.Roll() + StatsModifier(EffectiveStrength);
             if (damages < 0) damages = 0;
             target.TakeDamages(damages);
             Console.WriteLine($" {Name} frappe {target.Name} pour {damages} dégâts ! (PV restants : {target.HP})");
@@ -78,7 +81,7 @@ namespace Heroes_VS_Monsters.Characters
         public virtual string HitLog(Characters target)
         {
             Dice dice4 = new Dice(1, 4);
-            int damages = dice4.Roll() + StatsModifier(Strength);
+            int damages = dice4.Roll() + StatsModifier(EffectiveStrength);
             if (damages < 0) damages = 0;
             target.TakeDamages(damages);
             return $" {Name} → {target.Name} : -{damages} dmg (PV: {target.HP})";
@@ -91,7 +94,7 @@ namespace Heroes_VS_Monsters.Characters
 
         public void Rest()
         {
-            _HP = Stamina + StatsModifier(Stamina);
+            _HP = EffectiveStamina + StatsModifier(EffectiveStamina);
         }
 
         public bool Dead()

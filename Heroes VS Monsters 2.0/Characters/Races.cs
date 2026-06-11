@@ -11,6 +11,9 @@ namespace Heroes_VS_Monsters.Characters
         public override string Race => "Humain";
         public override int TotalStrength => Strength + 1 + (Sword != null ? Sword.Bonus : 0);
         public override int TotalStamina => Stamina + 1 + (Armor != null ? Armor.Bonus : 0);
+        public override int EffectiveStrength => TotalStrength;
+        public override int EffectiveStamina => TotalStamina;
+
 
         public Human(string name, int stre, int stam) : base(name, stre, stam) { }
     }
@@ -20,6 +23,10 @@ namespace Heroes_VS_Monsters.Characters
         public override string Race => "Nain";
         public override int TotalStrength => Strength + (Sword != null ? Sword.Bonus : 0);
         public override int TotalStamina => Stamina + 2 + (Armor != null ? Armor.Bonus : 0);
+
+        public override int EffectiveStrength => TotalStrength;
+        public override int EffectiveStamina => TotalStamina;
+
 
         public Dwarf(string name, int stre, int stam) : base(name, stre, stam) { }
     }
@@ -31,6 +38,8 @@ namespace Heroes_VS_Monsters.Characters
         public int TotalArcana => Arcana + 2 + (MagicStaff != null ? MagicStaff.Bonus : 0);
         public override int TotalStrength => 0;
         public override int TotalStamina => Stamina + (Armor != null ? Armor.Bonus : 0);
+        public override int EffectiveStamina => TotalStamina;
+
 
         public Elf(string name, int arc, int stam) : base(name, noStrength: true, stam)
         {
@@ -43,7 +52,7 @@ namespace Heroes_VS_Monsters.Characters
             int damages = dice4.Roll() + StatsModifier(TotalArcana);
             if (damages < 0) damages = 0;
             target.TakeDamages(damages);
-            Console.WriteLine($"  {Name} lance un sort sur {target.Name} pour {damages} dégâts ! (PV restants : {target.HP})");
+            ConsoleHelper.WriteColored($"  {Name} lance un sort sur {target.Name} pour {damages} dégâts ! (PV restants : {target.HP})", ConsoleColor.Yellow);
         }
 
         public override string HitLog(Characters target)

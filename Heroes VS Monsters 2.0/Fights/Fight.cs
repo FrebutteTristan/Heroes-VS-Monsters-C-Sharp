@@ -21,7 +21,7 @@ namespace Heroes_VS_Monsters.Fights
 
             int turn = 1;
 
-            while (!hero.Dead() && !monster.Dead() || turn <=4)
+            while (!hero.Dead() && !monster.Dead())
             {
                 combatLog.Add("");
                 combatLog.Add($" --- Tour {turn} ---");
@@ -30,7 +30,7 @@ namespace Heroes_VS_Monsters.Fights
                 string heroHit = hero.HitLog(monster);
                 combatLog.Add(heroHit);
 
-                if (monster.Dead())
+                if (monster.Dead() || turn >= 5)
                 {
                     combatLog.Add($" 💀 {monster.Name} meurt de ses blessures !");
                     break;
@@ -39,7 +39,7 @@ namespace Heroes_VS_Monsters.Fights
                 string monsterHit = monster.HitLog(hero);
                 combatLog.Add(monsterHit);
 
-                if (hero.Dead())
+                if (hero.Dead() || turn >= 5)
                 {
                     combatLog.Add($" 💀 {hero.Name} se vide de son sang !");
                     break;
