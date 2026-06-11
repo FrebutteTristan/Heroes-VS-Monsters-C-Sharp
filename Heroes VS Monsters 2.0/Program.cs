@@ -12,7 +12,7 @@ namespace Heroes_VS_Monsters
 
 
 
-            ConsoleHelper.WriteColored(@"
+            ColoredConsole.WriteColored(@"
 
 
 
@@ -22,7 +22,7 @@ namespace Heroes_VS_Monsters
                                         Devant toi, tu peux apercevoir un panneau couvert de mousse... :", ConsoleColor.Yellow);
 
 
-            ConsoleHelper.WriteColored(@"
+            ColoredConsole.WriteColored(@"
                                            ╔═══════════════════════════════════════════════════╗
                                            ║                                                   ║
                                            ║                 FORET KRYPTGARDEN                 ║
@@ -36,7 +36,7 @@ namespace Heroes_VS_Monsters
                                                                    ╚══╝", ConsoleColor.Green);
 
 
-          ConsoleHelper.WriteColored(@"
+          ColoredConsole.WriteColored(@"
                                    La douleur te fait baisser les yeux vers une flaque d'eau à tes pieds...
                                         
             
@@ -51,7 +51,7 @@ namespace Heroes_VS_Monsters
             
             string raceSelection = Console.ReadLine()!;
 
-            ConsoleHelper.WriteColored("               En te massant les tempes, tu arrives à retrouver tes esprits, quel est ton nom ?", ConsoleColor.Yellow);
+            ColoredConsole.WriteColored("               En te massant les tempes, tu arrives à retrouver tes esprits, quel est ton nom ?", ConsoleColor.Yellow);
             string heroName = Console.ReadLine()!;
             Console.Clear();
 
@@ -98,7 +98,7 @@ namespace Heroes_VS_Monsters
             int[] results = new int[4];
 
 
-            ConsoleHelper.WriteColored(@$"  
+            ColoredConsole.WriteColored(@$"  
               ╔══════════════════════════════════════════╗
                🎲 Lancer des dés pour : {stats}   
               ╚══════════════════════════════════════════╝
@@ -125,7 +125,7 @@ namespace Heroes_VS_Monsters
             int smallerDice = copy[0];
             int sum = copy[1] + copy[2] + copy[3];
 
-            ConsoleHelper.WriteColored(@"
+            ColoredConsole.WriteColored(@"
               ──────────────────────────────────────────
                        Récapitulatif des 4 dés :
             ", ConsoleColor.Cyan);
@@ -141,7 +141,7 @@ namespace Heroes_VS_Monsters
 
             }
 
-            ConsoleHelper.WriteColored(@$" 
+            ColoredConsole.WriteColored(@$" 
                ❌ Le dé le plus faible ({smallerDice}) est ignoré.
 
                ✅ Somme des 3 meilleurs : {copy[1]} + {copy[2]} + {copy[3]} = {sum}

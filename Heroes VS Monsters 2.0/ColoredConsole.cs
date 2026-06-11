@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Heroes_VS_Monsters
 {
-    public static class ConsoleHelper
+    public static class ColoredConsole
     {
         public static void WriteColored(string text, ConsoleColor color)
         {

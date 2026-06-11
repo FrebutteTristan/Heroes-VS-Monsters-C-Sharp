@@ -201,7 +201,7 @@ namespace Heroes_VS_Monsters
 
             Console.SetCursorPosition(0, 0);
             
-ConsoleHelper.WriteColored(@"    ╔══════════════════════════╗              ╔══════════════════════════════════════╗
+ColoredConsole.WriteColored(@"    ╔══════════════════════════╗              ╔══════════════════════════════════════╗
     ║    Forêt Kryptgarden     ║              ║            Journal / Combat          ║
     ╚══════════════════════════╝              ╚══════════════════════════════════════╝", ConsoleColor.Yellow);
 
@@ -326,7 +326,7 @@ ConsoleHelper.WriteColored(@"    ╔══════════════�
         private void DisplayGameEnd()
         {
             Console.Clear();
-            ConsoleHelper.WriteColored(@"
+            ColoredConsole.WriteColored(@"
 
                 ╔══════════════════════════════════════════╗
                 ║              FIN DU JEU                  ║
@@ -336,10 +336,10 @@ ConsoleHelper.WriteColored(@"    ╔══════════════�
 
             if (_hero.Dead())
             {
-                ConsoleHelper.WriteColored(@$"                
+                ColoredConsole.WriteColored(@$"                
                       💀 {_hero.Name} est tombé(e) au combat !
                          Tu as vaincu {_defeatedMonsters} monstre(s).", ConsoleColor.Red);
-                ConsoleHelper.WriteColored(@$"
+                ColoredConsole.WriteColored(@$"
                                 _____________
                                /             \
                               /               \
@@ -361,24 +361,24 @@ ConsoleHelper.WriteColored(@"    ╔══════════════�
             }
             else
             {
-                ConsoleHelper.WriteColored(@$"                    
+                ColoredConsole.WriteColored(@$"                    
                                   🏆 Félicitations {_hero.Name} !
                             Tu as vaincu tous les monstres de la forêt !
                      Tu peux enfin quitter cet endroit maudit et rentrer chez toi.", ConsoleColor.Yellow);
 
-                ConsoleHelper.WriteColored($@"
+                ColoredConsole.WriteColored($@"
                              (@@)       (@@)       (@@)       (@@)       (@@)
                             (@@@@)     (@@@@)     (@@@@)     (@@@@)     (@@@@)
                            (@@@@@@)   (@@@@@@)   (@@@@@@)   (@@@@@@)   (@@@@@@)", ConsoleColor.DarkGreen);
-ConsoleHelper.WriteColored(@$"                              ||         ||         ||         ||         ||
+ColoredConsole.WriteColored(@$"                              ||         ||         ||         ||         ||
                     --------------------------------------------------------------", ConsoleColor.DarkGray);
-ConsoleHelper.WriteColored($@"
+ColoredConsole.WriteColored($@"
                                              0
                                             \_\_
                                               _\\
                                             _/  \_", ConsoleColor.Yellow); 
 
-ConsoleHelper.WriteColored(@$"
+ColoredConsole.WriteColored(@$"
                     --------------------------------------------------------------
                 
                 ", ConsoleColor.DarkGray);

@@ -52,7 +52,7 @@ namespace Heroes_VS_Monsters.Characters
             int damages = dice4.Roll() + StatsModifier(TotalArcana);
             if (damages < 0) damages = 0;
             target.TakeDamages(damages);
-            ConsoleHelper.WriteColored($"  {Name} lance un sort sur {target.Name} pour {damages} dégâts ! (PV restants : {target.HP})", ConsoleColor.Yellow);
+            ConsoleColored.WriteColored($"  {Name} lance un sort sur {target.Name} pour {damages} dégâts ! (PV restants : {target.HP})", ConsoleColor.Yellow);
         }
 
         public override string HitLog(Characters target)
