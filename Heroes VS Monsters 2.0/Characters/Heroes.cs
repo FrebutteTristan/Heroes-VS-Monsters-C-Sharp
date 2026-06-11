@@ -147,7 +147,8 @@ namespace Heroes_VS_Monsters.Characters
                       Or : {Gold} pièces | Cuir : {Leather} morceaux
                       Épée     : {(Sword != null ? Sword.ToString() : "aucune")}
                       Armure   : {(Armor != null ? Armor.ToString() : "aucune")}
-                      Bâton    : {(MagicStaff != null ? MagicStaff.ToString() : "aucun")}", ConsoleColor.Yellow
+                      Bâton    : {(MagicStaff != null ? MagicStaff.ToString() : "aucun")}
+                  __________________________________________", ConsoleColor.Yellow
                      );
         }
 

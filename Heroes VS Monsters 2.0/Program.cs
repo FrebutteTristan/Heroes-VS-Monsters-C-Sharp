@@ -14,40 +14,40 @@ namespace Heroes_VS_Monsters
        
             ConsoleHelper.WriteColored(@"
 
-                                    Tu te réveilles avec une migraine intense...                  
+                                                   Tu te réveilles avec une migraine intense...                  
             
-                         Devant toi, tu peux apercevoir un panneau couvert de mousse... :         
+                                        Devant toi, tu peux apercevoir un panneau couvert de mousse... :         
             
             
-                            ╔═══════════════════════════════════════════════════╗
-                            ║                                                   ║
-                            ║                 FORET KRYPTGARDEN                 ║
-                            ║                                                   ║
-                            ╚═══════════════════════╗══╔════════════════════════╝
-                                                    ║══║
-                                                    ║══║
-                                                    ║══║
-                                                    ║══║
-                                                    ║══║
-                                                    ╚══╝
+                                           ╔═══════════════════════════════════════════════════╗
+                                           ║                                                   ║
+                                           ║                 FORET KRYPTGARDEN                 ║
+                                           ║                                                   ║
+                                           ╚═══════════════════════╗══╔════════════════════════╝
+                                                                   ║══║
+                                                                   ║══║
+                                                                   ║══║
+                                                                   ║══║
+                                                                   ║══║
+                                                                   ╚══╝
 
 
           
-                    La douleur te fait baisser les yeux vers une flaque d'eau à tes pieds...
+                                   La douleur te fait baisser les yeux vers une flaque d'eau à tes pieds...
                                         
             
-                    Quelle race vois-tu ?
+                                   Quelle race vois-tu ?
             
-            1. 🧑 Humain (+1 Force, +1 Endurance) - peut s'équiper d'une épée et d'une armure
-            2. 🪖 Nain   (+2 Endurance)           - peut s'équiper d'une épée et d'une armure
-            3. 🧝 Elfe   (+2 Arcane)              - peut s'équiper d'un bâton magique et d'une armure
+                           1. 🧑 Humain (+1 Force, +1 Endurance) - peut s'équiper d'une épée et d'une armure
+                           2. 🪖 Nain   (+2 Endurance)           - peut s'équiper d'une épée et d'une armure
+                           3. 🧝 Elfe   (+2 Arcane)              - peut s'équiper d'un bâton magique et d'une armure
             
-              1, 2 ou 3 :
+                             1, 2 ou 3 :
             ", ConsoleColor.Yellow);
             
             string raceSelection = Console.ReadLine()!;
 
-            ConsoleHelper.WriteColored("En te massant les tempes, tu arrives à retrouver tes esprits, quel est ton nom ?", ConsoleColor.Yellow);
+            ConsoleHelper.WriteColored("               En te massant les tempes, tu arrives à retrouver tes esprits, quel est ton nom ?", ConsoleColor.Yellow);
             string heroName = Console.ReadLine()!;
             Console.Clear();
 
@@ -95,23 +95,23 @@ namespace Heroes_VS_Monsters
 
 
             ConsoleHelper.WriteColored(@$"  
-    ╔══════════════════════════════════════════╗
-     🎲 Lancer des dés pour : {stats}   
-    ╚══════════════════════════════════════════╝
+              ╔══════════════════════════════════════════╗
+               🎲 Lancer des dés pour : {stats}   
+              ╚══════════════════════════════════════════╝
                
- Tu vas lancer 4 dés 6.Seuls les 3 meilleurs résultats
- seront additionnés pour déterminer ta/ton {stats}.
+           Tu vas lancer 4 dés 6.Seuls les 3 meilleurs résultats
+           seront additionnés pour déterminer ta/ton {stats}.
             ", ConsoleColor.Cyan);
           
 
             for (int i = 0; i < 4; i++)
             {
-                Console.Write($" Appuie sur 'Enter'' pour lancer le dé ({i + 1}/4)...");
+                Console.Write($"           Appuie sur 'Enter'' pour lancer le dé ({i + 1}/4)...");
                 Console.ReadLine();
 
                 results[i] = dice6.Roll();
 
-                Console.WriteLine($"  🎲 Dé {i + 1} : {ShowDice(results[i])}  →  {results[i]}");
+                Console.WriteLine($"            🎲 Dé {i + 1} : {ShowDice(results[i])}  →  {results[i]}");
                 Console.WriteLine();
             }
 
@@ -121,31 +121,29 @@ namespace Heroes_VS_Monsters
             int smallerDice = copy[0];
             int sum = copy[1] + copy[2] + copy[3];
 
-            Console.WriteLine(@"
-──────────────────────────────────────────
-       Récapitulatif des 4 dés :
-            ");
+            ConsoleHelper.WriteColored(@"
+              ──────────────────────────────────────────
+                       Récapitulatif des 4 dés :
+            ", ConsoleColor.Cyan);
 
             bool ignoreSmallerDice = false;
             for (int i = 0; i < 4; i++)
             {
                 if (results[i] == smallerDice && !ignoreSmallerDice)
                 {
-                    Console.Write($" [{results[i]} ✗]  ");
+                    Console.Write("");
                     ignoreSmallerDice = true;
-                }
-                else
-                {
-                    Console.Write($" [{results[i]} ✓]  ");
                 }
 
             }
 
-            Console.WriteLine(@$" 
-  ❌ Le dé le plus faible ({smallerDice}) est ignoré.
-  ✅ Somme des 3 meilleurs : {copy[1]} + {copy[2]} + {copy[3]} = {sum}
-  🏆 {stats} de {heroName} : {sum}
-══════════════════════════════════════════");
+            ConsoleHelper.WriteColored(@$" 
+               ❌ Le dé le plus faible ({smallerDice}) est ignoré.
+
+               ✅ Somme des 3 meilleurs : {copy[1]} + {copy[2]} + {copy[3]} = {sum}
+
+               🏆 {stats} de {heroName} : {sum}
+             ══════════════════════════════════════════", ConsoleColor.Yellow);
             Console.ReadLine();
             Console.Clear();
 
