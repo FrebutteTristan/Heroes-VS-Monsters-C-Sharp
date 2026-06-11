@@ -101,19 +101,19 @@ namespace Heroes_VS_Monsters.Characters
 
         public void LootDrop(Monsters monster)
         {
-            if (monster.Gold > 0) { Gold += monster.Gold; ColoredConsole.WriteColored($"{Name} ramasse {monster.Gold} pièces d'or !", ConsoleColor.Yellow); }
-            if (monster.Leather > 0) { Leather += monster.Leather; ColoredConsole.WriteColored($"{Name} ramasse {monster.Leather} morceaux de cuir !", ConsoleColor.Red); }
+            if (monster.Gold > 0) { Gold += monster.Gold; Console.WriteLine($"{Name} ramasse {monster.Gold} pièces d'or !"); }
+            if (monster.Leather > 0) { Leather += monster.Leather; Console.WriteLine($"{Name} ramasse {monster.Leather} morceaux de cuir !"); }
         }
 
         public void DropChance()
         {
             Item itemDrop = ItemsManagement.DropChance(Race);
-            if (itemDrop == null) { ColoredConsole.WriteColored("Aucun objet trouvé.", ConsoleColor.Cyan); return; }
+            if (itemDrop == null) { ConsoleColored.WriteColored("Aucun objet trouvé.", ConsoleColor.Cyan); return; }
             Item inventory = GetInventory(itemDrop.Type);
             if (inventory == null) { EquipItem(itemDrop); }
             else
             {
-                ColoredConsole.WriteColored($"Veux-tu remplacer {inventory} par {itemDrop} ? (oui/non) : ", ConsoleColor.Cyan);
+                ConsoleColored.WriteColored($"Veux-tu remplacer {inventory} par {itemDrop} ? (oui/non) : ", ConsoleColor.Cyan);
                 string answer = Console.ReadLine()!;
                 if (answer == "oui") EquipItem(itemDrop);
             }
@@ -122,7 +122,7 @@ namespace Heroes_VS_Monsters.Characters
         public void GetRest()
         {
             Rest();
-            ColoredConsole.WriteColored($" {Name} se repose et récupère tous ses PV.", ConsoleColor.Yellow);
+            ConsoleColored.WriteColored($" {Name} se repose et récupère tous ses PV.", ConsoleColor.Yellow);
         }
 
         private Item GetInventory(TypeItem type)
@@ -141,7 +141,7 @@ namespace Heroes_VS_Monsters.Characters
 
         public void DisplayInventory()
         {
-            ColoredConsole.WriteColored(@$"  
+            ConsoleColored.WriteColored(@$"  
                   --- Objets récupérés durant l'aventure ---
            
                       Or : {Gold} pièces | Cuir : {Leather} morceaux
