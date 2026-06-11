@@ -11,14 +11,18 @@ namespace Heroes_VS_Monsters
             Console.OutputEncoding = System.Text.Encoding.UTF8;
 
 
-       
+
             ConsoleHelper.WriteColored(@"
 
-                                                   Tu te réveilles avec une migraine intense...                  
+
+
+                                                   Tu te réveilles avec une migraine intense...    
+
             
-                                        Devant toi, tu peux apercevoir un panneau couvert de mousse... :         
-            
-            
+                                        Devant toi, tu peux apercevoir un panneau couvert de mousse... :", ConsoleColor.Yellow);
+
+
+            ConsoleHelper.WriteColored(@"
                                            ╔═══════════════════════════════════════════════════╗
                                            ║                                                   ║
                                            ║                 FORET KRYPTGARDEN                 ║
@@ -29,10 +33,10 @@ namespace Heroes_VS_Monsters
                                                                    ║══║
                                                                    ║══║
                                                                    ║══║
-                                                                   ╚══╝
+                                                                   ╚══╝", ConsoleColor.Green);
 
 
-          
+          ConsoleHelper.WriteColored(@"
                                    La douleur te fait baisser les yeux vers une flaque d'eau à tes pieds...
                                         
             
