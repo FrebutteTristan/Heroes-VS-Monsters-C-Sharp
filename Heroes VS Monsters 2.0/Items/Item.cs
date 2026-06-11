@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Heroes_VS_Monsters_2.Items
+namespace Heroes_VS_Monsters.Items
 {
     class Item
     {

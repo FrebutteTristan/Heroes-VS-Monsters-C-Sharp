@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using Heroes_VS_Monsters_2.Items;
+using Heroes_VS_Monsters.Items;
 
-namespace Heroes_VS_Monsters_2.Items
+namespace Heroes_VS_Monsters.Items
 {
     static class ItemsManagement
     {

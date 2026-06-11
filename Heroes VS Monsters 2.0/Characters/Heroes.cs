@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Xml.Linq;
-using Heroes_VS_Monsters_2.Items;
+using Heroes_VS_Monsters.Items;
 
-namespace Heroes_VS_Monsters_2.Characters
+namespace Heroes_VS_Monsters.Characters
 {
     abstract class Heroes : Characters
     {

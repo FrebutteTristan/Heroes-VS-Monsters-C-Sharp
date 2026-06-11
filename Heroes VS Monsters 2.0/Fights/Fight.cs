@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using Heroes_VS_Monsters_2.Characters;
+using Heroes_VS_Monsters.Characters;
 
-namespace Heroes_VS_Monsters_2.Fights
+namespace Heroes_VS_Monsters.Fights
 {
     class Fight
     {
@@ -13,7 +13,7 @@ namespace Heroes_VS_Monsters_2.Fights
             List<string> lootLog = new List<string>();
 
             combatLog.Add("════════════════════════════════");
-            combatLog.Add($" ⚔️  {hero.Name} VS {monster.Name}");
+            combatLog.Add($" ⚔️ {hero.Name} VS {monster.Name}");
             combatLog.Add("════════════════════════════════");
             combatLog.Add($" {hero.Name}: {hero.HP} PV");
             combatLog.Add($" {monster.Name}: {monster.HP} PV");
@@ -21,7 +21,7 @@ namespace Heroes_VS_Monsters_2.Fights
 
             int turn = 1;
 
-            while (!hero.Dead() && !monster.Dead())
+            while (!hero.Dead() && !monster.Dead() || turn <=4)
             {
                 combatLog.Add("");
                 combatLog.Add($" --- Tour {turn} ---");
@@ -32,7 +32,7 @@ namespace Heroes_VS_Monsters_2.Fights
 
                 if (monster.Dead())
                 {
-                    combatLog.Add($" 💀 {monster.Name} est mort !");
+                    combatLog.Add($" 💀 {monster.Name} meurt de ses blessures !");
                     break;
                 }
 
@@ -41,7 +41,7 @@ namespace Heroes_VS_Monsters_2.Fights
 
                 if (hero.Dead())
                 {
-                    combatLog.Add($" 💀 {hero.Name} est mort !");
+                    combatLog.Add($" 💀 {hero.Name} se vide de son sang !");
                     break;
                 }
 

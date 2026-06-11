@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Xml.Linq;
-using Heroes_VS_Monsters_2.Dices;
+using Heroes_VS_Monsters.Dices;
 
-namespace Heroes_VS_Monsters_2.Characters
+namespace Heroes_VS_Monsters.Characters
 {
     class Human : Heroes
     {

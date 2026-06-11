@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Text;
 
-namespace Heroes_VS_Monsters_2.Dices
+namespace Heroes_VS_Monsters.Dices
 {
     class Dice
     {

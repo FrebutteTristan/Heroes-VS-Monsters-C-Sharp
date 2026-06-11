@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using Heroes_VS_Monsters_2.Dices;
+using Heroes_VS_Monsters.Dices;
 
-namespace Heroes_VS_Monsters_2.Characters
+namespace Heroes_VS_Monsters.Characters
 {
     abstract class Characters
     {

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Heroes_VS_Monsters_2.Characters
+namespace Heroes_VS_Monsters.Characters
 {
     abstract class Monsters : Characters
     {

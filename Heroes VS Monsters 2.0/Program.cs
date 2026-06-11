@@ -1,8 +1,8 @@
 ﻿using System;
-using Heroes_VS_Monsters_2.Characters;
-using Heroes_VS_Monsters_2.Dices;
+using Heroes_VS_Monsters.Characters;
+using Heroes_VS_Monsters.Dices;
 
-namespace Heroes_VS_Monsters_2
+namespace Heroes_VS_Monsters
 {
     class Program
     {
@@ -96,11 +96,11 @@ namespace Heroes_VS_Monsters_2
 
 
             Console.WriteLine(@$"  
- ╔══════════════════════════════════════════╗
-   🎲 Lancer des dés pour : {stats}   
- ╚══════════════════════════════════════════╝
+    ╔══════════════════════════════════════════╗
+     🎲 Lancer des dés pour : {stats}   
+    ╚══════════════════════════════════════════╝
                
- Tu vas lancer 4 dés 6. Seuls les 3 meilleurs résultats
+ Tu vas lancer 4 dés 6.Seuls les 3 meilleurs résultats
  seront additionnés pour déterminer ta/ton {stats}.
             ");
           
@@ -124,7 +124,7 @@ namespace Heroes_VS_Monsters_2
 
             Console.WriteLine(@"
 ──────────────────────────────────────────
-     Récapitulatif des 4 dés :
+       Récapitulatif des 4 dés :
             ");
 
             bool ignoreSmallerDice = false;
@@ -132,12 +132,12 @@ namespace Heroes_VS_Monsters_2
             {
                 if (results[i] == smallerDice && !ignoreSmallerDice)
                 {
-                    Console.Write($"[{results[i]} ✗]  ");
+                    Console.Write($" [{results[i]} ✗]  ");
                     ignoreSmallerDice = true;
                 }
                 else
                 {
-                    Console.Write($"[{results[i]} ✓]  ");
+                    Console.Write($" [{results[i]} ✓]  ");
                 }
 
             }
@@ -146,7 +146,7 @@ namespace Heroes_VS_Monsters_2
   ❌ Le dé le plus faible ({smallerDice}) est ignoré.
   ✅ Somme des 3 meilleurs : {copy[1]} + {copy[2]} + {copy[3]} = {sum}
   🏆 {stats} de {heroName} : {sum}
- ═════════════════════════════════════════");
+══════════════════════════════════════════");
             Console.ReadLine();
             Console.Clear();
 

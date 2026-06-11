@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using Heroes_VS_Monsters_2.Characters;
-using Heroes_VS_Monsters_2.Fights;
+using Heroes_VS_Monsters.Characters;
+using Heroes_VS_Monsters.Fights;
 
-namespace Heroes_VS_Monsters_2
+namespace Heroes_VS_Monsters
 {
     class GameBoard
     {
